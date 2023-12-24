@@ -76,6 +76,10 @@ var _webhook = require('./resources/webhook');
 
 var _webhook2 = _interopRequireDefault(_webhook);
 
+var _workflow = require('./resources/workflow');
+
+var _workflow2 = _interopRequireDefault(_workflow);
+
 var _auditLog = require('./resources/audit-log');
 
 var _auditLog2 = _interopRequireDefault(_auditLog);
@@ -256,6 +260,15 @@ var Client = function () {
       }
 
       return this._webhooks;
+    }
+  }, {
+    key: 'workflows',
+    get: function get() {
+      if (!this._workflows) {
+        this._workflows = new _workflow2.default(this);
+      }
+
+      return this._workflows;
     }
   }, {
     key: 'query',

@@ -15,6 +15,7 @@ import Audio from './resources/audio';
 import Signature from './resources/signature';
 import Role from './resources/role';
 import Webhook from './resources/webhook';
+import Workflow from './resources/workflow';
 import AuditLog from './resources/audit-log';
 import query from './resources/query';
 
@@ -163,6 +164,14 @@ export default class Client {
     }
 
     return this._webhooks;
+  }
+
+  get workflows() {
+    if (!this._workflows) {
+      this._workflows = new Workflow(this);
+    }
+
+    return this._workflows;
   }
 
   get query() {

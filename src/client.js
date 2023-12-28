@@ -176,7 +176,7 @@ export default class Client {
 
   get batch() {
     if (!this._batch) {
-      this._batch = Batch(this);
+      this._batch = new Batch(this);
     }
 
     return this._batch;

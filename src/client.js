@@ -17,6 +17,7 @@ import Role from './resources/role';
 import Webhook from './resources/webhook';
 import AuditLog from './resources/audit-log';
 import query from './resources/query';
+import Batch from './resources/batch';
 
 const VERSION = require('../package.json').version;
 
@@ -171,6 +172,14 @@ export default class Client {
     }
 
     return this._query;
+  }
+
+  get batch() {
+    if (!this._batch) {
+      this._batch = Batch(this);
+    }
+
+    return this._batch;
   }
 
   get auditLogs() {

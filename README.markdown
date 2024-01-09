@@ -62,6 +62,7 @@ Various methods are available for each of the resources. Check the chart below f
 | Layers              | find, all, create, update, delete             |
 | Audit Logs          | find, all                                     |
 | Authorizations      | find, all, create, update, delete, regenerate |
+| Workflows           | find, all, create, update, delete             |
 
 #### find
 

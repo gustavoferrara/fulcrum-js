@@ -1,6 +1,6 @@
-import List from '../actions/list';
-import Find from '../actions/find';
 import Resource from './base';
+
+const DEFAULT_PER_PAGE = 1000;
 
 export default class Batch extends Resource {
   get resourceName() {
@@ -9,6 +9,25 @@ export default class Batch extends Resource {
 
   get resourcesName() {
     return 'batch';
+  }
+
+  get defaultListParams() {
+    return { per_page: DEFAULT_PER_PAGE };
+  }
+
+  async all(params) {
+    const options = {
+      qs: params || this.defaultListParams
+    };
+
+    const body = await this.client.api.get(this.collectionPath(), options);
+    return body;
+  }
+
+  async find(id) {
+    const body = await this.client.api.get(this.memberPath(id));
+
+    return body[this.resourcesName];
   }
 
   async create(object) {
@@ -45,5 +64,3 @@ export default class Batch extends Resource {
   }
 }
 
-List.includeInto(Batch);
-Find.includeInto(Batch);

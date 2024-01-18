@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --require babel-core/register",
     "lint": "node_modules/.bin/eslint src/* src/**/*",
-    "build": "node_modules/.bin/babel src --out-dir dist --source-maps",
+    "build": "babel src --out-dir dist --source-maps",
     "watch": "node_modules/.bin/babel src --out-dir dist --source-maps --watch",
     "clean": "rm -rf dist"
   },

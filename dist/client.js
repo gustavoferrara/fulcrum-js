@@ -84,6 +84,10 @@ var _query = require('./resources/query');
 
 var _query2 = _interopRequireDefault(_query);
 
+var _batch = require('./resources/batch');
+
+var _batch2 = _interopRequireDefault(_batch);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var VERSION = require('../package.json').version;
@@ -265,6 +269,15 @@ var Client = function () {
       }
 
       return this._query;
+    }
+  }, {
+    key: 'batch',
+    get: function get() {
+      if (!this._batch) {
+        this._batch = new _batch2.default(this);
+      }
+
+      return this._batch;
     }
   }, {
     key: 'auditLogs',

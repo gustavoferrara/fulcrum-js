@@ -54,7 +54,7 @@ export default class Batch extends Resource {
 
     const body = await this.client.api.post(`${this.memberPath(id)}/operations`, options);
 
-    return body[this.resourceName];
+    return body[this.resourcesName];
   }
 
   async start(id) {
